@@ -1,24 +1,42 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import ImageUploader from "./ImageUploader";
+import ContactForm from "./ContactForm";
+
+
+function Home() {
+  return (
+    <section className="card">
+      <h2 className="card-title">Visor de imágenes</h2>
+      <ImageUploader multiple={false} maxMB={10} />
+    </section>
+  );
+}
 
 export default function App() {
   return (
-    <div className="app-shell">
-      <header className="app-header">
-        <h1>Trabajo Práctico N°1 — Lenguajes IV</h1>
-        <p className="subtitle">Seleccioná una imagen para visualizarla. (Podés activar múltiples más abajo)</p>
-      </header>
+    <Router>
+      <div className="app-shell">
+        <header className="app-header">
+          <h1>Trabajo Practico N°2 — Lenguajes IV</h1>
+          <p className="subtitle">Seleccioná una opción en el menú</p>
+          <nav style={{ marginTop: "16px" }}>
+            <Link to="/" className="btn" style={{ marginRight: "8px" }}>Inicio</Link>
+            <Link to="/contact" className="btn">Contacto</Link>
+          </nav>
+        </header>
 
-      <main className="app-main">
-        <section className="card">
-          <h2 className="card-title">Visor de imágenes</h2>
-          {/* Cambiá multiple a true si tu profe permite varias imágenes */}
-          <ImageUploader multiple={false} maxMB={10} />
-        </section>
-      </main>
+        <main className="app-main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<ContactForm />} />
+          </Routes>
+        </main>
 
-      <footer className="app-footer">Hecho con React • Accesible y responsive • {new Date().getFullYear()}</footer>
-    </div>
+        <footer className="app-footer"> este es el footer </footer>
+      </div>
+    </Router>
   );
 }
+
