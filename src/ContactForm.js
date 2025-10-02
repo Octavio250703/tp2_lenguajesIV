@@ -104,6 +104,18 @@ export default function ContactForm() {
           </p>
         )}
       </form>
+
+      <div className="map">
+      <iframe
+        title="Ubicación del Hotel"
+        src="https://www.google.com/maps?q=-24.788,-65.410&z=14&output=embed"
+        width="100%"
+        height="100%"
+        style={{ borderRadius: "12px", minHeight: "350px" }}
+        loading="lazy"
+      />
+    </div>
+    
     </div>
   );
 }
