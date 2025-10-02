@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import ImageUploader from "./ImageUploader";
 import ContactForm from "./ContactForm";
-
+import Servicios from "./Servicios"; 
 
 function Home() {
   return (
@@ -24,6 +24,7 @@ export default function App() {
           <nav style={{ marginTop: "16px" }}>
             <Link to="/" className="btn" style={{ marginRight: "8px" }}>Inicio</Link>
             <Link to="/contact" className="btn">Contacto</Link>
+            <Link to="/servicios" className="btn" style={{ marginRight: "8px" }}>Servicios</Link>
           </nav>
         </header>
 
@@ -31,6 +32,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<ContactForm />} />
+            <Route path="/servicios" element={<Servicios />} />
           </Routes>
         </main>
 
